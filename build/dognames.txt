@@ -1,0 +1,1 @@
+Basenji\nBasset_hound\nBeagle\nBoston_terrier\nBoxer\nCocker_spaniel\nCollie\nDalmatian\nGerman_shepherd_dog\nGerman_shorthaired_pointer\nGolden_retriever\nGreat_dane\nGreat_pyrenees\nMiniature_schnauzer\nPoodle\nSaint_bernard\n

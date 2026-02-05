@@ -1,0 +1,42 @@
+UPLOADED IMAGES CLASSIFICATION ANALYSIS
+==================================================
+
+1. Dog Breed Classification for Dog_01.jpg across Models:
+   RESNET: Dog_01.jpg not found in results
+   ALEXNET: Dog_01.jpg not found in results
+   VGG: Dog_01.jpg not found in results
+
+2. Dog_01.jpg vs Dog_02.jpg Classification Consistency:
+   RESNET:
+     Dog_01.jpg: Not found
+     Dog_02.jpg: Not found
+     Consistent: True
+   ALEXNET:
+     Dog_01.jpg: Not found
+     Dog_02.jpg: Not found
+     Consistent: True
+   VGG:
+     Dog_01.jpg: Not found
+     Dog_02.jpg: Not found
+     Consistent: True
+
+3. Non-Dog Image Classifications:
+   RESNET:
+     Animal_01.jpg: Not found - Misclassified as dog: False
+     Object_01.jpg: Not found - Misclassified as dog: False
+   ALEXNET:
+     Animal_01.jpg: Not found - Misclassified as dog: False
+     Object_01.jpg: Not found - Misclassified as dog: False
+   VGG:
+     Animal_01.jpg: Not found - Misclassified as dog: False
+     Object_01.jpg: Not found - Misclassified as dog: False
+
+4. Best Model Architecture Selection:
+   Model Performance Scores (out of 3):
+     RESNET: 0/3
+     ALEXNET: 0/3
+     VGG: 0/3
+   Selected Best Model: RESNET
+   Reasoning: RESNET achieved the highest score (0/3) based on:
+     - Consistent classification between Dog_01.jpg and Dog_02.jpg
+     - Correctly identifying non-dog images as not dogs

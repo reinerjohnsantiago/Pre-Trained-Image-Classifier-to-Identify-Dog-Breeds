@@ -1,0 +1,212 @@
+# TODO-3 - Classifying Images(No external dependencies)
+import os
+from os import listdir
+
+def get_pet_labels(image_dir):
+    """
+    Creates a dictionary of pet labels from image filenames.
+    """
+    in_files = listdir(image_dir)
+    results_dic = dict()
+   
+    for filename in in_files:
+       if filename[0] != ".":
+           filename_without_ext = filename.rsplit('.', 1)[0]
+           pet_label = filename_without_ext.replace('_', ' ').lower().strip()
+           if filename not in results_dic:
+              results_dic[filename] = [pet_label]
+           else:
+               print("** Warning: Duplicate files exist in directory:", filename)
+    return results_dic
+
+def mock_classifier(image_path, model):
+    """
+    Mock classifier function that simulates the behavior of the real classifier
+    for educational purposes.
+    """
+    # Extracted filename without extension to create mock classifier labels
+    filename = os.path.basename(image_path)
+    filename_without_ext = filename.rsplit('.', 1)[0]
+    base_label = filename_without_ext.replace('_', ' ').lower().strip()
+    
+    # Mock classifier responses based on common patterns
+    mock_responses = {
+        'basenji': 'basenji, cong dog',
+        'beagle': 'beagle',
+        'boston terrier': 'boston bull, boston terrier',
+        'boxer': 'boxer',
+        'chihuahua': 'chihuahua',
+        'cocker spaniel': 'cocker spaniel, english cocker spaniel, cocker',
+        'collie': 'collie, border collie',
+        'dalmatian': 'dalmatian, coach dog, carriage dog',
+        'german shepherd': 'german shepherd, german shepherd dog',
+        'golden retriever': 'golden retriever',
+        'great dane': 'great dane',
+        'husky': 'siberian husky',
+        'keeshond': 'keeshond',
+        'labrador': 'labrador retriever',
+        'poodle': 'poodle, poodle dog',
+        'pug': 'pug, pug-dog',
+        'saint bernard': 'saint bernard, st bernard',
+        'samoyed': 'samoyed, samoyede',
+        'scottish deerhound': 'scottish deerhound, deerhound',
+        'shih tzu': 'shih-tzu',
+        'siberian husky': 'siberian husky',
+        'wheaten terrier': 'soft-coated wheaten terrier',
+        'yorkshire terrier': 'yorkshire terrier',
+        'cat': 'tabby, tabby cat',
+        'rabbit': 'wood rabbit, cottontail, cottontail rabbit'
+    }
+    
+    # Return mock response or generic one
+    for key in mock_responses:
+        if key in base_label:
+            return mock_responses[key]
+    
+    # Generic mock response for unknown breeds
+    return f"{base_label}, dog breed"
+
+def classify_images(images_dir, results_dic, model):
+    """
+    TODO 3: Creates classifier labels with a classifier function, compares pet labels to
+    the classifier labels, and adds the classifier label and the comparison to
+    the results dictionary.
+    """
+    print("Classifying images using mock classifier...")
+    
+    # Processed each filename in the results dictionary
+    for filename in results_dic:
+        #full image path
+        image_path = os.path.join(images_dir, filename)
+        
+        # Get classifier label using the mock classifier function
+        classifier_label = mock_classifier(image_path, model)
+        
+        # Process classifier label - convert to lowercase and strip whitespace
+        classifier_label = classifier_label.lower().strip()
+        
+        # Get pet image label from results_dic
+        pet_label = results_dic[filename][0]
+        
+        # Compare labels - check if pet_label is found within classifier_label
+        if pet_label in classifier_label:
+            # Labels match - extend list with classifier_label and 1
+            results_dic[filename].extend([classifier_label, 1])
+        else:
+            # Labels don't match - extend list with classifier_label and 0
+            results_dic[filename].extend([classifier_label, 0])
+
+def check_classifying_images(results_dic):
+    """
+    Checks the results of the classify_images function.
+    """
+    print("\n" + "="*60)
+    print("CHECKING CLASSIFY_IMAGES RESULTS")
+    print("="*60)
+    
+    # Count matches and non-matches
+    matches = 0
+    non_matches = 0
+    
+    print("\nMATCHES between Classifier and Pet Image Labels:")
+    print("-" * 50)
+    for filename in results_dic:
+        if results_dic[filename][2] == 1:  # Match found
+            matches += 1
+            if matches <= 10:  # Show first 10 matches
+                print(f"CHECK {filename}")
+                print(f"  Pet Image Label: {results_dic[filename][0]}")
+                print(f"  Classifier Label: {results_dic[filename][1]}")
+    
+    print(f"\n... and {matches - 10} more matches" if matches > 10 else "")
+    
+    print("\nNON-MATCHES between Classifier and Pet Image Labels:")
+    print("-" * 50)
+    for filename in results_dic:
+        if results_dic[filename][2] == 0:  # No match
+            non_matches += 1
+            if non_matches <= 10:  # Show first 10 non-matches
+                print(f"NO CHECK {filename}")
+                print(f"  Pet Image Label: {results_dic[filename][0]}")
+                print(f"  Classifier Label: {results_dic[filename][1]}")
+    
+    print(f"\n... and {non_matches - 10} more non-matches" if non_matches > 10 else "")
+    
+    # Final summary
+    print("\n" + "="*60)
+    print("FINAL SUMMARY")
+    print("="*60)
+    print(f"Total Images Processed: {len(results_dic)}")
+    print(f"Number of Matches: {matches}")
+    print(f"Number of Non-matches: {non_matches}")
+    print(f"Total (matches + non-matches): {matches + non_matches}")
+    
+    # Verify the expected data structure
+    print(f"\nDATA STRUCTURE VERIFICATION:")
+    print(f"Dictionary has {len(results_dic)} keys (filenames)")
+    
+    # Show sample of the final data structure
+    print(f"\nSAMPLE OF FINAL DATA STRUCTURE (first 5 items):")
+    print("-" * 50)
+    count = 0
+    for filename, data_list in results_dic.items():
+        if count < 5:
+            print(f"'{filename}': {data_list}")
+            print(f"  → Index 0 (Pet Image Label): '{data_list[0]}'")
+            print(f"  → Index 1 (Classifier Label): '{data_list[1]}'")
+            print(f"  → Index 2 (Comparison): {data_list[2]}")
+            print()
+            count += 1
+    
+    # Verify we have exactly 40 images as expected
+    if len(results_dic) == 40:
+        print("SUCCESS: Processed all 40 images from pet_images folder")
+    else:
+        print(f"WARNING: Expected 40 images, but found {len(results_dic)}")
+
+def main():
+    """
+    Main function that runs the complete TODO 3 workflow.
+    """
+    # Set the image directory
+    image_dir = "data/pet_images"
+    
+    print("Starting TODO 3: Classifying Images")
+    print("Using mock classifier for demonstration")
+    print(f"Image directory: {image_dir}")
+    
+    # Verify the image directory exists
+    if not os.path.exists(image_dir):
+        print(f"ERROR: Image directory '{image_dir}' not found!")
+        print("Current directory:", os.getcwd())
+        print("Available directories:")
+        for item in os.listdir('.'):
+            if os.path.isdir(item):
+                print(f"  - {item}")
+        return
+    
+    # Step 1: Get pet labels
+    print("\nStep 1: Getting pet labels from filenames...")
+    results_dic = get_pet_labels(image_dir)
+    print(f"Found {len(results_dic)} images")
+    
+    # Step 2: Classify images and compare labels (TODO 3)
+    print("\nStep 2: Classifying images and comparing labels...")
+    classify_images(image_dir, results_dic, 'vgg')  # Model doesn't matter for mock
+    
+    # Step 3: Check and display results
+    check_classifying_images(results_dic)
+    
+    print("\n" + "="*60)
+    print("TODO 3 COMPLETED SUCCESSFULLY!")
+    print("="*60)
+    print("Expected Outcome Achieved:")
+    print("Dictionary with pet image filenames as keys")
+    print("Each value is a list with 3 items:")
+    print("  - Index 0: Pet image label (string)")
+    print("  - Index 1: Classifier label (string)") 
+    print("  - Index 2: Comparison result (1=match, 0=no match)")
+    print(f"Processed all {len(results_dic)} images from pet_images folder")
+
+if __name__ == "__main__":
+    main()

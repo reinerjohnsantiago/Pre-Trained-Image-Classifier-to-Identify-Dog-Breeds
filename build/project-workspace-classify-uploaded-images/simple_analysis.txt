@@ -1,0 +1,8 @@
+SIMPLE ANALYSIS OF UPLOADED IMAGES CLASSIFICATION
+==================================================
+
+RESNET RESULTS:
+
+ALEXNET RESULTS:
+
+VGG RESULTS:

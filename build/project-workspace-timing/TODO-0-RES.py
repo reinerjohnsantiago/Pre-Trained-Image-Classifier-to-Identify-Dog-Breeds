@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# */AIPND-revision/intropyproject-classify-pet-images/check_images.py
+#
+# TODO 0: Add your information below for Programmer & Date Created.                                                                             
+# PROGRAMMER: REINER JOHN SANTIAGO
+# DATE CREATED: OCTOBER 7, 2025                                 
+# REVISED DATE: 
+# PURPOSE: Classifies pet images using a pretrained CNN model, compares these
+#          classifications to the true identity of the pets in the images, and
+#          summarizes how well the CNN performed on the image classification task. 
+#          Note that the true identity of the pet (or object) in the image is 
+#          indicated by the filename of the image. Therefore, your program must
+#          first extract the pet image label from the filename before
+#          classifying the images using the pretrained CNN model. With this 
+#          program we will be comparing the performance of 3 different CNN model
+#          architectures to determine which provides the 'best' classification.
+#
+# Use argparse Expected Call with <> indicating expected user input:
+#      python check_images.py --dir <directory with images> --arch <model>
+#             --dogfile <file that contains dognames>
+#   Example call:
+#    python check_images.py --dir pet_images/ --arch vgg --dogfile dognames.txt
+##
+
+# Imports python modules
+from time import time, sleep
+
+# Imports print functions that check the lab
+#from print_functions_for_lab_checks import *
+
+# Imports functions created for this program
+#from get_input_args import get_input_args
+#from get_pet_labels import get_pet_labels
+#from classify_images import classify_images
+#from adjust_results4_isadog import adjust_results4_isadog
+#from calculates_results_stats import calculates_results_stats
+#from print_results import print_results
+
+# Main program function defined below
+def main():
+    # TODO 0: Measures total program runtime by collecting start time
+    start_time = time()
+   # time/code check
+    sleep(2)     
+     
+    # TODO 0: Measure total program runtime by collecting end time
+    end_time = time()
+    
+    # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss format
+    #calc diff between end and start
+    tot_time = end_time - start_time
+
+    hours = int(tot_time / 3600)
+    minutes = int((tot_time % 3600) / 60)
+    seconds = int(tot_time % 60)
+    
+    #format with two digits by using f-strings
+    print(f"\n** Total Elapsed Runtime: {hours:02d}:{minutes:02d}:{seconds:02d}")          
+    
+
+# Call to main function to run the program
+if __name__ == "__main__":
+    main()
