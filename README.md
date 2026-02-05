@@ -1,94 +1,161 @@
-# Pre-trained-Image-Classifier-to-Identify-Dog-Breeds
-> I wrote a pre-trained image classifier to identify dog breeds using python
+🐶 Dog Breed Classifier
+A Python-based image classifier that identifies dog breeds using pre-trained deep learning models. Developed to assist with contestant registration for a citywide dog show by verifying submitted images are actual dogs and classifying their breeds.
 
-## Table of Contents
-- [Pre-trained-Image-Classifier-to-Identify-Dog-Breeds](#pre-trained-image-classifier-to-identify-dog-breeds)
-  - [Table of Contents](#table-of-contents)
-  - [General Information](#general-information)
-  - [Technologies Used](#technologies-used)
-  - [Features](#features)
-  - [Setup](#setup)
-  - [Usage](#usage)
-  - [Project Status](#project-status)
-  - [Acknowledgements](#acknowledgements)
-  - [Contact](#contact)
-  - [License](#license)
+📋 Table of Contents
+Overview
 
+Features
 
-## General Information
-- My city is hosting a citywide dog show and i have volunteered to help the organizing committee with contestant registration. Every participant that registers must submit an image of their dog along with biographical information about their dog. 
-The registration system tags the images based upon the biographical information. Some people are planning on registering pets that aren’t actual dogs.I used an already developed Python classifier to make sure the participants are dogs.
-- Principal Objectives
-<ol><li> Correctly identify which pet images are of dogs (even if the breed is misclassified) and which pet images aren't of dogs.</li>
-<li>Correctly classify the breed of dog, for the images that are of dogs.</li>
-<li>Determine which CNN model architecture (ResNet, AlexNet, or VGG), "best" achieve objectives 1 and 2.</li>
-<li>Consider the time resources required to best achieve objectives 1 and 2, and determine if an alternative solution would have given a "good enough" result, given the amount of time each of the algorithms takes to run.</li></ol>
+Technologies
 
+Installation
 
-## Technologies Used
-- ImageNet - a deep learning model called a convolutional neural network (often abbreviated as CNN). CNNs work particularly well for detecting features in images like colors, textures, and edges; then using these features to identify objects in the images.
-- Python - version 3.0
+Usage
 
+Project Structure
 
-## Features
-- ResNet Model Architecture
-- AlexNet Model Architecture
-- VGG Model Architecture 
+Results & Performance
 
+Acknowledgements
 
-## Setup
-- To run this project, it is required you've already installed Python 3 on your operating system. Check out this guide on installing python [Installing Python Guide](https://github.com/PackeTsar/Install-Python)
-- Download the workspace files and keep all in one folder. There are two folders of interest in which we're classifying, the pet_images folder and the uploaded_images folder.
-- Use terminal/command prompt to run projects
-- Attached is the hints file for each python program for guidance 
+Contact
 
+License
 
-## Usage
-- Open a terminal from the workspace folder, and run 
-		`check_images.py`
-    >The program should successfully classify the 40 images from the pet_images folder
-- Open a terminal from the uploaded_images folder, and run
-		`sh run_models_batch_uploaded.sh
-    >This will run check_images.py using all three model achitectures to classify the four images in the uploaded_images folder outputting their results files into the workspace using .txt format 
-classify the 40 images from the pet_images folder. In this section, you will upload 4 images to the uploaded_images folder
-- Directions for Finding Images and Uploading Images
-    >Below are directions for finding images and processing them so they can be classified by the check_images.py program.
-  <ol><li>Process the images so that:
-		Images are in jpeg format with extension jpg
-		Images are approximately square in shape (their height and width are approximately the same numbers of pixels).</li>
-  <li>Find the following 3 images (or take the following 3 pictures):
-		Dog Image - named Dog_01.jpg. Make sure you know the breed of dog that the image is of.
-		Pet or Animal Image that's not a dog - named Animal_Name_01.jpg , where Animal_Name is the name of the animal in the picture. This name is formatted such that if more than one word makes up the animal name those words are separated by an underbar ( _ ).
-			For example:
-				Image of a Black Bear is named Black_bear_01.jpg
-				Image of a Frog is named Frog_01.jpg</li>
-	  <li>An image of something that's not an animal - named Object_Name_01.jpg, where Object_Name is the name of the object in the picture. This name is formatted such that if more than one word makes up the object name those words are separated by an underbar ( _ ).
-		For example:
-			Image of a Coffee Mug is named Coffee_mug_01.jpg
-			Image of a Bucket is named Bucket_01.jpg</li>
-  <li>Create a fourth Image of a Dog using Dog_01.jpg
-		Using Dog_01.jpg image horizontally flip the image and name it Dog_02.jpg. This will mean that Dog_02.jpg is a mirror image of Dog_01.jpg. If you are having difficulty with the horizontal flip alteration of Dog_01.jpg, just rotate Dog_01.jpg image by 180 degrees so that Dog_02.jpg is an upside-down version of Dog_01.jpg.</li>
-	<li>Upload all four images to the uploaded_images folder within the Project Workspace - Uploaded
-		Double click on the uploaded_images folder within the Project Workspace - Uploaded.
-		Next, click on the white + symbol above />home>workspace>uploaded_images text
-		Next, select Upload File from the dropdown menu
-		Next, select one of the four files to upload to the uploaded_images folder and click on the Open button
-		Repeat the same process to upload the rest of the four files to the uploaded_images folder</li>
-    
+🎯 Overview
+This project addresses the challenge of validating dog show registrations by:
 
-## Project Status
-Project is: completed
+Verifying dog images - Identifying whether submitted images contain dogs
 
+Classifying breeds - Determining the specific breed for confirmed dog images
 
-## Acknowledgements
-Give credit here.
-- This project was based on improving my programming skills using Python by [Udacity](https://learn.udacity.com).
-- Many thanks to Udacity and my sesssion lead abdulla at Udacity for the support.
+Model comparison - Evaluating performance across multiple CNN architectures
 
+Efficiency analysis - Balancing accuracy with computational requirements
 
-## Contact
-Created by [Reiner John Santiago](https://www.linkedin.com/in/emmanuel-samuel-168255143)](https://www.linkedin.com/in/reiner-santiago-a09040243/) - feel free to contact me!
+Objectives
+✅ Distinguish between dog and non-dog images
 
+✅ Accurately classify dog breeds
 
-## License
-This project is open source and available under the [Udacity License]
+✅ Compare ResNet, AlexNet, and VGG model performance
+
+✅ Analyze time-performance trade-offs
+
+✨ Features
+Multi-Model Support: Three CNN architectures for comparison:
+
+ResNet - Deep residual networks
+
+AlexNet - Classic CNN architecture
+
+VGG - Very deep convolutional networks
+
+Batch Processing: Classify multiple images efficiently
+
+Custom Image Support: Upload and classify your own images
+
+Performance Metrics: Detailed accuracy and timing reports
+
+🛠️ Technologies
+Python 3.x - Primary programming language
+
+PyTorch - Deep learning framework
+
+ImageNet Pre-trained Models - Leveraging transfer learning
+
+Convolutional Neural Networks (CNNs) - For image feature extraction and classification
+
+📥 Installation
+Prerequisites
+Python 3.6 or higher
+
+pip package manager
+
+Setup
+Clone the repository:
+
+bash
+git clone https://github.com/yourusername/dog-breed-classifier.git
+cd dog-breed-classifier
+Install required dependencies (create a requirements.txt if available):
+
+bash
+pip install torch torchvision pillow
+Ensure workspace structure:
+
+text
+workspace/
+├── pet_images/           # Sample images for testing
+├── uploaded_images/      # User-uploaded images
+├── check_images.py       # Main classification script
+└── run_models_batch_uploaded.sh  # Batch processing script
+🚀 Usage
+Basic Classification
+Run the classifier on sample images:
+
+bash
+python check_images.py
+Batch Processing with All Models
+Classify uploaded images using all three architectures:
+
+bash
+cd uploaded_images
+sh run_models_batch_uploaded.sh
+Preparing Your Own Images
+For best results, ensure images are:
+
+In JPG format with .jpg extension
+
+Approximately square (similar height and width)
+
+Clearly visible subject
+
+Required Test Images:
+Dog image - Named Dog_01.jpg
+
+Non-dog animal - Named Animal_Name_01.jpg (e.g., Black_bear_01.jpg)
+
+Non-animal object - Named Object_Name_01.jpg (e.g., Coffee_mug_01.jpg)
+
+Modified dog image - Create Dog_02.jpg by horizontally flipping Dog_01.jpg
+
+📁 Project Structure
+text
+.
+├── check_images.py              # Main classification script
+├── run_models_batch_uploaded.sh # Batch processing script
+├── pet_images/                  # Provided test images
+├── uploaded_images/             # User image uploads
+├── results/                     # Classification outputs
+│   ├── resnet_pet-images.txt
+│   ├── alexnet_pet-images.txt
+│   └── vgg_pet-images.txt
+└── hints/                       # Guidance documentation
+📊 Results & Performance
+The project evaluates three CNN models based on:
+
+Classification accuracy for dog vs. non-dog images
+
+Breed identification precision
+
+Processing time and computational efficiency
+
+Resource requirements
+
+(Add specific metrics and comparisons from your project results here)
+
+🙏 Acknowledgements
+Udacity - For providing the foundational curriculum and project structure
+
+Session Lead Abdulla - For guidance and support throughout the learning journey
+
+Open Source Community - For the pre-trained models and tools that made this project possible
+
+📞 Contact
+Reiner John Santiago
+LinkedIn Profile
+Feel free to reach out for questions, collaborations, or feedback!
+
+📄 License
+This project is open source and available under the Udacity License.
