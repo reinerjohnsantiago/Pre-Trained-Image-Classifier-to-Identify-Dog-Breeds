@@ -87,7 +87,7 @@ Give credit here.
 
 
 ## Contact
-Created by [Emmanuel Samuel](https://www.linkedin.com/in/emmanuel-samuel-168255143) - feel free to contact me!
+Created by [Reiner John Santiago](https://www.linkedin.com/in/emmanuel-samuel-168255143)](https://www.linkedin.com/in/reiner-santiago-a09040243/) - feel free to contact me!
 
 
 ## License
