@@ -3,23 +3,14 @@ A Python-based image classifier that identifies dog breeds using pre-trained dee
 
 📋 Table of Contents
 Overview
-
 Features
-
 Technologies
-
 Installation
-
 Usage
-
 Project Structure
-
 Results & Performance
-
 Acknowledgements
-
 Contact
-
 License
 
 🎯 Overview
@@ -35,46 +26,32 @@ Efficiency analysis - Balancing accuracy with computational requirements
 
 Objectives
 ✅ Distinguish between dog and non-dog images
-
 ✅ Accurately classify dog breeds
-
 ✅ Compare ResNet, AlexNet, and VGG model performance
-
 ✅ Analyze time-performance trade-offs
 
 ✨ Features
 Multi-Model Support: Three CNN architectures for comparison:
-
 ResNet - Deep residual networks
-
 AlexNet - Classic CNN architecture
-
 VGG - Very deep convolutional networks
-
 Batch Processing: Classify multiple images efficiently
-
 Custom Image Support: Upload and classify your own images
-
 Performance Metrics: Detailed accuracy and timing reports
 
 🛠️ Technologies
 Python 3.x - Primary programming language
-
 PyTorch - Deep learning framework
-
 ImageNet Pre-trained Models - Leveraging transfer learning
-
 Convolutional Neural Networks (CNNs) - For image feature extraction and classification
 
 📥 Installation
 Prerequisites
 Python 3.6 or higher
-
 pip package manager
 
 Setup
 Clone the repository:
-
 bash
 git clone https://github.com/yourusername/dog-breed-classifier.git
 cd dog-breed-classifier
@@ -90,6 +67,7 @@ workspace/
 ├── uploaded_images/      # User-uploaded images
 ├── check_images.py       # Main classification script
 └── run_models_batch_uploaded.sh  # Batch processing script
+
 🚀 Usage
 Basic Classification
 Run the classifier on sample images:
@@ -143,12 +121,8 @@ Processing time and computational efficiency
 
 Resource requirements
 
-(Add specific metrics and comparisons from your project results here)
-
 🙏 Acknowledgements
 Udacity - For providing the foundational curriculum and project structure
-
-Session Lead Abdulla - For guidance and support throughout the learning journey
 
 Open Source Community - For the pre-trained models and tools that made this project possible
 
